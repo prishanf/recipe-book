@@ -112,3 +112,9 @@ RecipesPage -> RecipePage->(Add Ingrediants to Shopping List)->ShoppingListPage
             }
         }
     ```
+
+5. Saving Items with ShopingList Service
+    * Update the ShoppingList Compoent to call the service to add new Item
+    * Reset the form after the Item is added.
+    * Display the newly added items on the below the form
+

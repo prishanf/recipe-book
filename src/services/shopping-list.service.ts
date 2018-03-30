@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Ingrediant } from "../models/ingrediant.model";
 
 @Injectable()
-export class ShppingListService {
+export class ShoppingListService {
 
     private shoppingList :Ingrediant[] =[];
 

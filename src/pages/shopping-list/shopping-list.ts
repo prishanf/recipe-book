@@ -1,3 +1,5 @@
+import { Ingrediant } from './../../models/ingrediant.model';
+import { ShoppingListService } from './../../services/shopping-list.service';
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
@@ -7,11 +9,23 @@ import { NgForm } from '@angular/forms';
 })
 export class ShoppingListPage {
 
-  
+  shoppingList :Array<Ingrediant>=[];
+
+  constructor(private shoppingListService: ShoppingListService){
+  }
+
+  ionViewWillEnter(){
+    this.loadItems();
+  }
+    
   onAddItem(form:NgForm){
-    console.log(form);
-    console.log(form.value.ingredientName);
-    console.log(form.value.amount);
+    this.shoppingListService.addItem(form.value.ingredientName,form.value.amount);
+    form.reset();
+    this.loadItems();
+  }
+
+  private loadItems(){
+    this.shoppingList = this.shoppingListService.getItems();
   }
 
 }
