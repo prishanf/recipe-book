@@ -82,3 +82,33 @@ RecipesPage -> RecipePage->(Add Ingrediants to Shopping List)->ShoppingListPage
         <button ion-button type="submit" block [disabled]="!f.valid">Add Item</button>
         ```
 
+4. Implement the ShoppingList Service
+    * Cretae Ingrediant Model class
+    * Implement Shopping List Service Methods
+        * `addItem(name:string, amount:numner)`
+        * `addItems(ingrediants:Ingrediant[])`
+        * `getItems(): Ingrediant[]`
+        * `removeItem(index:number)`
+    ```javascript
+        @Injectable()
+        export class ShppingListService {
+
+            private shoppingList :Ingrediant[] =[];
+
+            addItem(name:string,amount:number){
+                this.shoppingList.push(new Ingrediant(name,amount));
+            }
+
+            addItems(items:Ingrediant[]){
+                this.shoppingList.push(...items);
+            }
+
+            getItems(): Ingrediant[] {
+                return this.shoppingList.slice();
+            }
+
+            removeItem(index: number){
+                this.shoppingList.splice(index,1);
+            }
+        }
+    ```
