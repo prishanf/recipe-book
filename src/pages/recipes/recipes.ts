@@ -1,5 +1,6 @@
+import { RecipeFormPage } from './../recipe-form/recipe-form';
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 
 @Component({
   selector: 'page-recipes',
@@ -7,11 +8,11 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class RecipesPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad RecipesPage');
+  onNewRecipe(){
+    this.navCtrl.push(RecipeFormPage,{ mode:'New' });
   }
 
 }

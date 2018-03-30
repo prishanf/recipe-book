@@ -134,3 +134,40 @@ RecipesPage -> RecipePage->(Add Ingrediants to Shopping List)->ShoppingListPage
             </ion-item-options>
         </ion-item-sliding>
         ```
+7. Implement Create New Recipe Page
+    * Update the Recipe component's heard tpo add + button
+    * Implement the onNewRecipe method to go to the Receipe Form Page
+    * Implement Receipe Form Component with Reactive Approch
+        * HTML implementation        
+            ```html
+            <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+                <ion-list>
+                    <ion-item>
+                    <ion-label floating>Title</ion-label>
+                    <ion-input type="text" formControlName="title"></ion-input> 
+                    </ion-item>
+                    <ion-item>
+                        <ion-label floating>Description</ion-label>
+                        <ion-textarea formControlName="description"></ion-textarea> 
+                    </ion-item>
+                    <ion-item>
+                        <ion-label floating>Difficulty</ion-label>
+                        <ion-select formControlName="difficulty" >
+                            <ion-option *ngFor="let option of selectDifficultyOptions" [value]="option">{{ option }}</ion-option>
+                        </ion-select>
+                    </ion-item>
+                </ion-list>
+                <button type="submit" block ion-button [disabled]="recipeForm.invalid">{{mode}}</button>
+            </form>
+            ```
+        * Initialize the form via FormGrop and Form Controll classes 
+            ```javascript
+                private initializeForm(){
+                    this.recipeForm = new FormGroup({
+                    title : new FormControl(null,Validators.required),
+                    description : new FormControl(null,Validators.required),
+                    deficulty: new FormControl('Medium',Validators.required)  
+                    });
+                }
+            ```
+
