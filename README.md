@@ -45,4 +45,16 @@ RecipesPage -> RecipePage->(Add Ingrediants to Shopping List)->ShoppingListPage
     * ionic g page recipe-form
     * ionic g page shopping-list
 
-
+2. Implement navigation
+    * Udpate the tabs.html file add the tabs
+        ```html
+        <ion-tabs>
+            <ion-tab [root]="shopingListPage" tabIcon="list-box" tabTitle="Shopping List"></ion-tab>
+            <ion-tab [root]="recipeBook" tabIcon="book" tabTitle="Recipes"></ion-tab>
+        </ion-tabs>
+        ```
+    * Update the tabs.ts file with the tabPage pages variables
+        ```javascript
+            shopingListPage = ShoppingListPage;
+            recipeBook = RecipesPage;
+        ```

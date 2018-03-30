@@ -1,5 +1,6 @@
+import { RecipesPage } from './../recipes/recipes';
+import { ShoppingListPage } from './../shopping-list/shopping-list';
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
 
 @Component({
   selector: 'page-tabs',
@@ -7,11 +8,7 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class TabsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad TabsPage');
-  }
+  shopingListPage = ShoppingListPage;
+  recipeBook = RecipesPage;
 
 }
