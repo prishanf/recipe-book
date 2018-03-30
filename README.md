@@ -58,3 +58,27 @@ RecipesPage -> RecipePage->(Add Ingrediants to Shopping List)->ShoppingListPage
             shopingListPage = ShoppingListPage;
             recipeBook = RecipesPage;
         ```
+3. Implement the Shopping List input form
+    * Add Shpping Item 
+        ```html
+            <form #f="ngForm" (ngSubmit)="onAddItem(f)"> <!-- Get a reference to ngForm via template variable and pass it to the onAddItem method -->
+                <ion-list>
+                    <ion-item>
+                    <ion-label fixed>Name</ion-label>
+                    <ion-input type="text" name="ingredientName" placeholder="Milk" required></ion-input>
+                    </ion-item>
+                    <ion-item>
+                    <ion-label fixed>Amount</ion-label>
+                    <ion-input type="number" name="amount" placeholder="2" required></ion-input>
+                    </ion-item>
+                 </ion-list>
+                 <button ion-button type="submit" block>Add Item</button>
+             </form>
+        ``` 
+    * Add validation and Disable the Add Item Button
+        ```html
+        <ion-input ngModel type="text" name="ingredientName" placeholder="Milk" required></ion-input>
+        <ion-input ngModel type="number" name="amount" placeholder="2" required></ion-input>
+        <button ion-button type="submit" block [disabled]="!f.valid">Add Item</button>
+        ```
+
