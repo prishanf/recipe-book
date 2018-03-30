@@ -118,3 +118,19 @@ RecipesPage -> RecipePage->(Add Ingrediants to Shopping List)->ShoppingListPage
     * Reset the form after the Item is added.
     * Display the newly added items on the below the form
 
+6. Implement Delete Item from List
+    * Implement slide to remove item
+        ```html
+        <ion-item-sliding *ngFor="let item of shoppingList; let i = index">
+            <ion-item>
+            <h2>{{item.name}}</h2>
+            <ion-note item-end>{{item.amount}}</ion-note>
+            </ion-item>
+            <ion-item-options side="right">
+                <button ion-button color="danger" (tap)="onRemoveItem(i)">
+                <ion-icon name="trash"></ion-icon>
+                Delete
+                </button>
+            </ion-item-options>
+        </ion-item-sliding>
+        ```
