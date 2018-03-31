@@ -58,6 +58,7 @@ RecipesPage -> RecipePage->(Add Ingrediants to Shopping List)->ShoppingListPage
             shopingListPage = ShoppingListPage;
             recipeBook = RecipesPage;
         ```
+
 3. Implement the Shopping List input form
     * Add Shpping Item 
         ```html
@@ -134,6 +135,7 @@ RecipesPage -> RecipePage->(Add Ingrediants to Shopping List)->ShoppingListPage
             </ion-item-options>
         </ion-item-sliding>
         ```
+
 7. Implement Create New Recipe Page
     * Update the Recipe component's heard tpo add + button
     * Implement the onNewRecipe method to go to the Receipe Form Page
@@ -260,4 +262,24 @@ RecipesPage -> RecipePage->(Add Ingrediants to Shopping List)->ShoppingListPage
               }).present();
               return;
             }
-        ```          
+        ```   
+
+9. Implement Recipe Model and Service
+    * Recipe Model
+    ```javascript
+        import { Ingrediant } from './ingrediant.model';
+        export class Recipe{
+            constructor(
+                public title: string,
+                public description: string,
+                public difficulty: string,
+                public ingredients: Ingrediant[]) {}
+        }
+    ```
+    * Recipe Service
+        `addRecipe`
+        `removeRecipe`
+        `getRecipes`
+        `updateRecipe`
+
+    
