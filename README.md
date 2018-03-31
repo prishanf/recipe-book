@@ -171,3 +171,93 @@ RecipesPage -> RecipePage->(Add Ingrediants to Shopping List)->ShoppingListPage
                 }
             ```
 
+8. Implment Add Ingreediants to the Recipe Form
+    * Add manager ingredient Button to Open the Action Sheet.
+        ```html
+        <button type="button" clear ion-button block clear 
+        (click)="onManageIngredients()">Manage Ingredients</button>
+        ```
+    * Show Action sheet on Manage Ingredegent Button clicked
+        ```javascript
+            onManageIngredients(){
+                const  actionSheet = this.actionSheetCtr.create({
+                title:'What do you want to do?',
+                buttons: [
+                    {
+                    text: 'Add Ingredient',
+                    handler: () => {
+                        this.createNewIngredientAlert().present();
+                    }
+                    },
+                    {
+                    text: 'Remove all Ingredients',
+                    handler: () => {
+                    }
+                    },
+                    {
+                    text:'Cancel',
+                    role:'cancel'
+                    }
+                ]
+                });
+                actionSheet.present();
+            }
+        ```        
+    * Show Aler button to on Add Ingredient Button Selected
+        ```javascript
+            private createNewIngredientAlert(){
+                const newIngredientAlert = this.alertCtrl.create({
+                title: 'Add Ingredient',
+                inputs: [
+                    {
+                    name: 'name',
+                    placeholder: "Name"
+                    },
+                ], 
+                buttons: [
+                    {
+                    text: 'Cancel',
+                    role:'cancel'
+
+                    },
+                    {
+                    text: 'Add',
+                    handler: data => {
+                        if(data.name.trim()=='' || data.name == null){
+                        return;
+                        }
+                        (<FormArray>this.recipeForm.get('ingredients')).
+                        push(new FormControl(data.name,Validators.required));
+                    }
+                    }
+                ]  
+                });
+                return newIngredientAlert;
+            }
+        ```
+    * Implement Removing Ingredients Controls
+        ```javascript
+        {
+          text: 'Remove all Ingredients',
+          handler: () => {
+            const  fArray: FormArray = <FormArray>this.recipeForm.get('ingredients');
+            const len = fArray.length;
+            if(len>0){
+              for(let i = len-1;i>=0; i--){
+                fArray.removeAt(i);
+              }
+            }
+          }
+        },
+        ```
+    * Show toast when user did not enter valid value 
+        ```javascript
+         if(data.name.trim()=='' || data.name == null){
+              this.toastCtrl.create({
+                message: 'Please Enter Valid Value',
+                duration: 1000,
+                position: 'bottom'
+              }).present();
+              return;
+            }
+        ```          
