@@ -4,15 +4,16 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class RecipeService {
-    private recipes: Recipe[] = []
+    
+    private recipes: Recipe[] = [];
+    
     constructor() { }
 
     addRecipe(title: string,
                 description: string,
                 difficulty: string,
                 ingredients: Ingrediant[]){
-      
-        this.recipes.push(new Recipe(title,description,difficulty,ingredients));      
+        this.recipes.push(new Recipe(title,description,difficulty,ingredients));
     }
 
     getRecipes(){

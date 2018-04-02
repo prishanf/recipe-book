@@ -282,4 +282,6 @@ RecipesPage -> RecipePage->(Add Ingrediants to Shopping List)->ShoppingListPage
         `getRecipes`
         `updateRecipe`
 
-    
+10. Save and display recipes 
+    * Update the Recipe form onSave method to use the RecipeService to store data
+    * Update the RecipeComponent to dipsplay recipe list   
