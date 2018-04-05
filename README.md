@@ -329,4 +329,5 @@ RecipesPage -> RecipePage->(Add Ingrediants to Shopping List)->ShoppingListPage
         }
     ```
     * Update onSubmit method to call the server correct service method
-    * 
+    
+12. Implement send ingrediants to shopping list and delete recipe
