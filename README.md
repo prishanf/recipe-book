@@ -285,3 +285,48 @@ RecipesPage -> RecipePage->(Add Ingrediants to Shopping List)->ShoppingListPage
 10. Save and display recipes 
     * Update the Recipe form onSave method to use the RecipeService to store data
     * Update the RecipeComponent to dipsplay recipe list   
+
+11. Implement the Edit Page
+    * Push data via Nav Controller
+        ```javascript
+        onEditRecipe(){
+            this.navCtrl.push(RecipeFormPage,
+                { mode:'Edit',
+                recipe:this.recipe,
+                index:this.index
+                }
+            );
+        }
+        ```
+    * Update the initializeForm method to handle the edit mode
+    ```javascript
+        private initializeForm(){
+            let title = null;
+            let description = null;
+            let difficulty = 'Medium';
+            let ingredients = [];
+
+            if(this.mode =='Edit'){
+            title = this.recipe.title;
+            description = this.recipe.description;
+            difficulty = this.recipe.difficulty;
+            for( let ingredient of this.recipe.ingredients ){
+                console.log(ingredient);
+                ingredients.push(new FormControl(ingredient.name,Validators.required));
+            }
+        }
+
+    ```
+    * Update the init method to suppror both edit and new mode
+    ```javascript
+        ngOnInit(){
+            this.mode = this.navParams.get('mode');
+            if(this.mode=='Edit'){
+            this.recipe = this.navParams.get('recipe');
+            this.index = this.navParams.get('index');
+            }
+            this.initializeForm();
+        }
+    ```
+    * Update onSubmit method to call the server correct service method
+    * 

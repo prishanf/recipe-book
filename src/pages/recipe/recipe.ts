@@ -1,3 +1,4 @@
+import { RecipeFormPage } from './../recipe-form/recipe-form';
 import { Recipe } from './../../models/recipe.model';
 import { RecipeService } from './../../services/recipe.service';
 import { Component } from '@angular/core';
@@ -17,7 +18,12 @@ export class RecipePage {
   }
 
   onEditRecipe(){
-
+    this.navCtrl.push(RecipeFormPage,
+        { mode:'Edit',
+          recipe: this.recipe,
+          index: this.index
+        }
+    );
   }
 
   onDeleteRecipe(){
