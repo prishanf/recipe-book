@@ -1,3 +1,5 @@
+import { SignupPage } from './../pages/signup/signup';
+import { SigninPage } from './../pages/signin/signin';
 import { RecipeService } from './../services/recipe.service';
 import { ShoppingListService } from './../services/shopping-list.service';
 import { TabsPage } from './../pages/tabs/tabs';
@@ -20,7 +22,9 @@ import { MyApp } from './app.component';
     RecipesPage,
     ShoppingListPage,
     RecipeFormPage,
-    TabsPage
+    TabsPage,
+    SigninPage,
+    SignupPage
 
   ],
   imports: [
@@ -34,7 +38,9 @@ import { MyApp } from './app.component';
     RecipesPage,
     ShoppingListPage,
     RecipeFormPage,
-    TabsPage
+    TabsPage,
+    SigninPage,
+    SignupPage
   ],
   providers: [
     StatusBar,

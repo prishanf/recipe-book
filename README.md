@@ -331,3 +331,18 @@ RecipesPage -> RecipePage->(Add Ingrediants to Shopping List)->ShoppingListPage
     * Update onSubmit method to call the server correct service method
     
 12. Implement send ingrediants to shopping list and delete recipe
+
+#Advance Features
+* User Signup Authentication
+* Save/Load Data from/to Firebase
+* Resticted acces to pages      
+
+## App Pages
+SigninPage
+SignupPage
+Menu
+
+1. Generate the Signup and SignIn pages
+2. Implement the Side Menu
+3. Implement the nav bar menu button
+
