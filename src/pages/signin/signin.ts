@@ -1,4 +1,5 @@
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NgForm } from '@angular/forms';
+import { NavController, NavParams } from 'ionic-angular';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,11 +8,12 @@ import { Component } from '@angular/core';
 })
 export class SigninPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, ) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SigninPage');
+  onSignin(form:NgForm){
+    console.log(form.value);
   }
+ 
 
 }

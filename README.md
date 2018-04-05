@@ -345,4 +345,5 @@ Menu
 1. Generate the Signup and SignIn pages
 2. Implement the Side Menu
 3. Implement the nav bar menu button
-
+4. Implement the Signup form
+5. Implement the Signin form
