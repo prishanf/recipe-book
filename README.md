@@ -347,3 +347,12 @@ Menu
 3. Implement the nav bar menu button
 4. Implement the Signup form
 5. Implement the Signin form
+6. Setup firebase app in firebase console
+    * Enable username password signin methodsf from authentication menue
+7. Install fire base package
+    `npm install --save firebase`
+8. Createa new firebase stting file "firebase-config" to store the firebase api key
+9. Update app.component class to init the firebase
+    ```javascript
+        firebase.initializeApp(firebaseSettings);
+    ```
