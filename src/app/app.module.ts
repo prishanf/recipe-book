@@ -1,3 +1,4 @@
+import { AuthService } from './../services/auth.service';
 import { SignupPage } from './../pages/signup/signup';
 import { SigninPage } from './../pages/signin/signin';
 import { RecipeService } from './../services/recipe.service';
@@ -47,7 +48,7 @@ import { MyApp } from './app.component';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ShoppingListService,
-    RecipeService
+    RecipeService,AuthService
   ]
 })
 export class AppModule {}

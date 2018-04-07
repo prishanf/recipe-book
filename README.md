@@ -356,3 +356,26 @@ Menu
     ```javascript
         firebase.initializeApp(firebaseSettings);
     ```
+10. Add new Service AuthService and Link the Signup and Signin Forms 
+    * signup()
+    * signin()
+    * loguot()
+11. Update the SignupPage and SinginPage to use AuthService
+12. Update the app component to add implement the authchange event
+    ```javascript
+        constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private menuCtrl:MenuController,
+        .....
+        firebase.auth().onAuthStateChanged( user => {
+        if(user){
+            this.isAuthenticated = true;
+            this.rootPage = TabsPage;
+        }else{
+            this.isAuthenticated = false;
+            this.rootPage = SigninPage;
+        }
+        })
+    }
+    ```
+
+
+
