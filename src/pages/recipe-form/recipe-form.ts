@@ -32,6 +32,12 @@ export class RecipeFormPage implements OnInit {
       this.recipe = this.navParams.get('recipe');
       this.index = this.navParams.get('index');
     }
+    console.log(this.recipe,this.index);
+    
+    this.initializeForm();
+  }
+  ionViewWillEnter() {
+    console.log(this.recipe,this.index);
     this.initializeForm();
   }
 
@@ -154,7 +160,7 @@ export class RecipeFormPage implements OnInit {
       difficulty: new FormControl(difficulty,Validators.required),
       ingredients: new FormArray(ingredients)  
     });
-    this.recipeIngredientsArray =  (<FormArray>this.recipeForm.get('ingredients')).controls;
+    
   }
 
 }

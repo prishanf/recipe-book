@@ -12,7 +12,7 @@
     </ion-card-header>
     <ion-card-content>
       <p>{{recipe.description}}</p>
-      <div *ngIf="recipe.ingredients.length > 0">
+      <div *ngIf="recipe.ingredients?.length > 0">
       <br/>  
         <ion-label color="secondary">
           <h2>Ingredients</h2>
