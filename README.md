@@ -376,6 +376,12 @@ Menu
         })
     }
     ```
-
+13. Implement the popver page to display save and load data to firebase and link to the shopping list page meue bar
+14. Update the AuthService get Active User
+    ```javascript
+     getActiveUser() : firebase.User {
+       return firebase.auth().currentUser;
+     }
+    ```
 
 
