@@ -383,7 +383,7 @@ Menu
        return firebase.auth().currentUser;
      }
     ```
-15. Save Load Shooping list to Firebase
+15. Save/Load Shooping list to/from Firebase
     * Upadate the firebase Rule
     ```javascript
         {
@@ -409,5 +409,6 @@ Menu
             })
         }
     ```
+16.  Save/Load Recipes to/from Firebase
 
 
