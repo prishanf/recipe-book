@@ -1,7 +1,9 @@
+import { ShoppingListPopoverPage } from './shopping-lits-options/shopping-list-options';
 import { Ingrediant } from './../../models/ingrediant.model';
 import { ShoppingListService } from './../../services/shopping-list.service';
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { PopoverController } from 'ionic-angular';
 
 @Component({
   selector: 'page-shopping-list',
@@ -11,7 +13,7 @@ export class ShoppingListPage {
 
   shoppingList :Array<Ingrediant>=[];
 
-  constructor(private shoppingListService: ShoppingListService){
+  constructor(private shoppingListService: ShoppingListService,private popoverCtrl: PopoverController){
   }
 
   ionViewWillEnter(){
@@ -31,6 +33,13 @@ export class ShoppingListPage {
   onRemoveItem(index: number){
     this.shoppingListService.removeItem(index);
     this.loadItems();
+  }
+
+  onShowOptions(event:any){
+      const popover = this.popoverCtrl.create(ShoppingListPopoverPage);
+      popover.present({
+        ev:event
+      });
   }
 
 }

@@ -1,3 +1,4 @@
+import { ShoppingListPopoverPage } from './../pages/shopping-list/shopping-lits-options/shopping-list-options';
 import { AuthService } from './../services/auth.service';
 import { SignupPage } from './../pages/signup/signup';
 import { SigninPage } from './../pages/signin/signin';
@@ -25,7 +26,8 @@ import { MyApp } from './app.component';
     RecipeFormPage,
     TabsPage,
     SigninPage,
-    SignupPage
+    SignupPage,
+    ShoppingListPopoverPage
 
   ],
   imports: [
@@ -41,7 +43,8 @@ import { MyApp } from './app.component';
     RecipeFormPage,
     TabsPage,
     SigninPage,
-    SignupPage
+    SignupPage,
+    ShoppingListPopoverPage
   ],
   providers: [
     StatusBar,
