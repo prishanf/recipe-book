@@ -377,11 +377,37 @@ Menu
     }
     ```
 13. Implement the popver page to display save and load data to firebase and link to the shopping list page meue bar
-14. Update the AuthService get Active User
+14. Update the AuthService to get Active User
     ```javascript
      getActiveUser() : firebase.User {
        return firebase.auth().currentUser;
      }
+    ```
+15. Save Load Shooping list to Firebase
+    * Upadate the firebase Rule
+    ```javascript
+        {
+            "rules": {
+                ".read": "auth != null",
+                ".write": "auth != null"
+            }
+        }
+     ```
+    * Update the Shopping lsit service 
+    ```javascript
+        storeList(token: string){
+            const userId= this.authService.getActiveUser().uid;
+            return this.http.put('https://recipebook-f1cff.firebaseio.com/'+ userId +'/shopping-list.json?auth=' + token,
+                this.shoppingList);
+        }
+
+        fetchList(token: string){
+            const userId= this.authService.getActiveUser().uid;
+            return this.http.get('https://recipebook-f1cff.firebaseio.com/'+ userId +'/shopping-list.json?auth=' + token)
+            .do(data=>{
+                this.shoppingList = data;
+            })
+        }
     ```
 
 
